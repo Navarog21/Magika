@@ -4,25 +4,57 @@
   <meta charset="utf-8"/>
   <title>Test</title>
   <link type="text/css" rel="stylesheet" href="styles/style.css"/>
+  <link type="text/css" rel="stylesheet" href="styles/start.css"/>
 </head>
 
 <body>
-  <img class="icon" id="commande"src="images/icones/clavier.png" width="50" height="50"/>
   <img class="icon" id="musicButton" src="images/icones/musique.png" width="50" height="50"/>
   <div id="breakScreen">
-    <span id="title">Jeu en pause</span>
+    <span class="interface" id="title">Jeu en pause</span>
     <div id="audio"></div>
     <div id="restart"></div>
   </div>
 
-<canvas id="canvas"></canvas>
+  <div class="interface" id="startScreen">
+    <img class="icon" id="commande"src="images/icones/clavier.png" width="50" height="50"/>
+    <button id="playGame">Jouer</button>
+  </div>
+
+  <div id="controls">
+    <div class="controlContainer">
+      <label for="moveForward">Avancer</label>
+      <input type="text" class="control" id="moveForward"></span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="moveBackWard">Reculer</span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="moveRight">Droite</span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="moveLeft">Gauche</span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="Sauter">Sauter</span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="Attaquer">Attaquer</span>
+    </div>
+    <div class="controlContainer">
+      <input type="text" class="control" id="swap">Swap</span>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
 </body>
 
 </html>
 
+<script src="scripts/autre.js"></script>
 <script src="scripts/background.js"></script>
+<script src="scripts/controls.js"></script>
 <script src="scripts/music.js"></script>
 <script src="scripts/monstres.js"></script>
 <script src="scripts/spells.js"></script>
-<script src="scripts/deplacements.js"></script>
+<script src="scripts/character.js"></script>
 <script src="scripts/script.js"></script>

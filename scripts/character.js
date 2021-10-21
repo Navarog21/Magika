@@ -25,7 +25,7 @@ class Character
     this.y = ground;
     this.width = 200;
     this.height = 200;
-    this.shape = 1; // basic, feu et glace
+    this.shape = 2; // basic, feu et glace
     this.movementType = "3_RUN";
     this.spriteIndex = 0;
     this.attackStatut = false;
@@ -76,14 +76,12 @@ class Character
       spell = new FireSpell(this.shape);
       this.movementType = "5_ATTACK";
       fireSpells.push(spell);
-      drawProjectile()
       break;
 
       case 2:
       spell = new IceSpell(this.shape, mouse.x, mouse.y);
       this.movementType = "5_ATTACK";
       iceSpells.push(spell);
-      drawProjectile()
       break;
     }
   }
@@ -94,7 +92,7 @@ class Character
     {
       if (this.jump == false && this.fall == false)
       {
-        if (this.y > ground - 150) {
+        if (this.y > WORLD.ground - 150) {
           this.y -= this.jumping;
         }
         else {
@@ -105,7 +103,7 @@ class Character
 
       if (this.fall == true)
       {
-        if (this.y > ground) {
+        if (this.y > WORLD.ground) {
           this.jump = false;
           this.fall = false;
           clearInterval(jump)
@@ -116,10 +114,4 @@ class Character
       }
     },10)
   }
-}
-
-function drawProjectile()
-{
-  ctx.fillStyle = "red";
-  ctx.fillRect(this.x, this.y, 100, 100);
 }

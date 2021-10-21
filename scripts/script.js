@@ -5,124 +5,85 @@ canvas.height = window.innerHeight;
 let CANVAS_WIDTH = canvas.width;
 let CANVAS_HEIGHT = canvas.height;
 
-document.addEventListener('resize', () =>
-{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  CANVAS_WIDTH = window.innerWidth;
-  CANVAS_HEIGHT = window.innerHeight;
-})
+let WORLD;
 
-let runSpriteIndex = 0;
-let movement = "run";
+const mouse = {
+  x: 0,
+  y: 0
+}
+
+const startScreen = document.querySelector('#startScreen');
+const playButton = document.querySelector('#playGame');
+const breakScreen = document.querySelector('#breakScreen');
+const controls = document.querySelector('#controls');
+
 let monsters = [];
 
-window.addEventListener('load', (e) =>
+window.addEventListener('load', () =>
 {
-  gameLoop();
-  setInterval((e) =>
+  playButton.addEventListener('click',() =>
   {
-    for (let i = 0; i < 5; i++)
+    WORLD = new World();
+    startScreen.style.display = "none";
+    // WORLD.create();
+    setInterval((e) =>
     {
-      monsters.push(new Monster());
-    }
-  },4000)
+      for (let i = 0; i < 5; i++)
+      {
+        let monster = new Monster();
+        monster.draw();
+        monster.attack();
+      }
+    },4000)
+  })
 })
 
 let GAME_STATUT = "play";
-const mouse = {
-  x: 0,
-  y:0
-}
 
 let magicSpells = [];
 let fireSpells = [];
 let iceSpells = [];
 
-let ground = CANVAS_HEIGHT-250
-let gameSpeed = 5;
-let background = new Image();
 let character = new Character();
 
 let characterImage = new Image();
-
-background.src = "images/backgrounds/background1.png";
-let x = 0;
-let x2 = CANVAS_WIDTH;
-
-
 
 let gameFrame = 0;
 
 let gameLoop = () =>
 {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  moveBackground();
+  WORLD.moveBackground();
   character.draw();
 
   for (let i = 0; i < magicSpells.length; i++)
   {
     magicSpells[i].draw();
-    magicSpells[i].fall();
+    magicSpells[i].shoot();
   }
 
   for (let i = 0; i < fireSpells.length; i++)
   {
+    if (second > 1) {
+      fireSpells[i].bigShoot();
+    }
+    else {
+      fireSpells[i].shoot();
+    }
     fireSpells[i].draw();
-    fireSpells[i].shoot();
   }
 
-  monsters.forEach((monster) => {
-    monster.draw();
-    monster.x -= monster.speed;
-  });
-
+  for (let i = 0; i < iceSpells.length; i++)
+  {
+    iceSpells[i].draw();
+    iceSpells[i].shoot();
+  }
   playGame();
 }
 
 
-
-
-/*ATTAQUE*/
-canvas.addEventListener('click',(e) =>
-{
-  playMusic();
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-  character.attack();
-})
-
-window.addEventListener('keydown',(e) =>
-{
-  e.preventDefault();
-  if (e.key == "Tab")
-  {
-    let audio = new Audio("sounds/swap.wav")
-    audio.play();
-    if (character.shape == 2) character.shape = 0;
-    else character.shape++;
-  }
-
-  if (e.keyCode == 32)
-  {
-    character.toJump();
-  }
-
-  if (e.key == "Escape")
-  {
-    if (GAME_STATUT == "paused") {
-      GAME_STATUT = "play";
-      playGame();
-    }
-    else {
-      GAME_STATUT = "paused";
-    }
-  }
-})
-
 function playGame()
 {
-  let breakScreen = document.querySelector('#breakScreen');
   if (GAME_STATUT == "play")
   {
     breakScreen.style.display = "none";

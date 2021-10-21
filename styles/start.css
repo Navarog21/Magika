@@ -1,0 +1,52 @@
+#startScreen
+{
+  display: flex;
+  --width: 650px;
+  --height: 400px;
+  top: calc(50% - var(--height)/2);
+  left: calc(50% - var(--width)/2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 15px;
+  background-color: rgba(0,0,255,0.8);
+}
+
+#playGame
+{
+  outline: none;
+  border: 1px solid white;
+  font-size: 5rem;
+  color: white;
+  transition: 0.2s;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#playGame:hover
+{
+  background-color: white;
+}
+
+#controls
+{
+  display: none;
+  grid-template-columns:
+}
+
+.controlContainer
+{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#commande
+{
+ left: 95%;
+}

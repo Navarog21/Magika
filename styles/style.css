@@ -12,12 +12,16 @@ canvas
   display: block;
 }
 
+.interface
+{
+  position: absolute;
+}
+
 #breakScreen
 {
   display: none;
   --width: 650px;
   --height: 400px;
-  position: absolute;
   top: calc(50% - var(--height)/2);
   left: calc(50% - var(--width)/2);
   flex-direction: column;
@@ -26,8 +30,15 @@ canvas
   font-size: 10rem;
   width: var(--width);
   height: var(--height);
+  border-radius: 15px;
   background-color: rgba(255,255,255,0.8);
 }
+
+
+
+
+
+
 
 #title
  {
@@ -41,10 +52,6 @@ canvas
   cursor: pointer;
 }
 
- #commande
- {
-   left: 95%;
- }
 
  #musicButton
  {
