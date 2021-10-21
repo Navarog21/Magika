@@ -3,19 +3,26 @@ const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = window.innerWidth;
 const CANVAS_HEIGHT = canvas.height = window.innerHeight;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 document.addEventListener('resize', () =>
 {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  CANVAS_WIDTH = canvas.width = window.innerWidth;
+  CANVAS_HEIGHT = canvas.height = window.innerHeight;
 })
 
-let MUSIC = new Audio('sounds/glory.mp3')
-window.addEventListener('click', (e) =>
+let runSpriteIndex = 0;
+let movement = "run";
+let monsters = [];
+
+window.addEventListener('load', (e) =>
 {
-  MUSIC.play();
+  gameLoop();
+  setInterval((e) =>
+  {
+    for (let i = 0; i < 5; i++)
+    {
+      monsters.push(new Monster());
+    }
+  },4000)
 })
 
 let GAME_STATUT = "play";
@@ -40,18 +47,6 @@ let x = 0;
 let x2 = CANVAS_WIDTH;
 
 
-let runSpriteIndex = 0;
-let movement = "run";
-let monsters = [];
-
-
-setInterval((e) =>
-{
-  for (let i = 0; i < 5; i++)
-  {
-    monsters.push(new Monster());
-  }
-},4000)
 
 let gameFrame = 0;
 
@@ -80,7 +75,7 @@ let gameLoop = () =>
 
   playGame();
 }
-gameLoop();
+
 
 
 
@@ -123,6 +118,7 @@ window.addEventListener('keydown',(e) =>
 function playGame()
 {
   let breakScreen = document.querySelector('#breakScreen');
+  playMusic();
   if (GAME_STATUT == "play")
   {
     breakScreen.style.display = "none";

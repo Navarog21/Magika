@@ -11,8 +11,6 @@ class Monster
 
   draw()
   {
-
-    console.log(this.x)
     ctx.beginPath();
     ctx.fillStyle = "yellow";
     ctx.fillRect(this.x, this.y, this.width, this.height);

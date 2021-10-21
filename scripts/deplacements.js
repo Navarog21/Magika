@@ -40,8 +40,8 @@ class Character
     this.movementIndex = 0;
     this.jump = false;
     this.fall = false;
-    this.jumping = 10;
-    this.falling = 20;
+    this.jumping = 20;
+    this.falling = 30;
   }
 
   draw()

@@ -42,14 +42,23 @@ class FireSpell extends Spell
     this.mouseX = mouse.x;
     this.mouseY = mouse.y;
     this.radius = 7;
+    this.spellIndex = 0;
   }
 
   draw()
   {
-    ctx.beginPath();
-    ctx.fillStyle = "red";
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-    ctx.fill();
+    if (this.spellIndex == 59) {
+      this.spellIndex = 0;
+    }
+    else {
+      let image = new Image();
+      image.src = "images/spells/1_" + this.spellIndex + ".png";
+      ctx.rotate(Math.PI)
+      ctx.drawImage(image,this.x, this.y, 150, 150)
+      // ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+      this.spellIndex++;
+    }
+
   }
 
   shoot()
