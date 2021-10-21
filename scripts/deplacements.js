@@ -1,13 +1,5 @@
 let spellSound = ['sounds/normalAttack', "sounds/fireImpact", "sounds/iceAttack"]
-function moveBackground()
-{
-  ctx.drawImage(background, x, 0);
-  ctx.drawImage(background, x2, 0)
-  if (x < -CANVAS_WIDTH) x = CANVAS_WIDTH + x2 - gameSpeed;
-  else x -= gameSpeed;
-  if (x2 < -CANVAS_WIDTH) x2 = CANVAS_WIDTH + x - gameSpeed;
-  else x2 -= gameSpeed
-}
+
 
 class Object
 {

@@ -34,17 +34,19 @@ canvas
    font-size: 6rem;
  }
 
+.icon
+{
+  position: absolute;
+  top: 2%;
+  cursor: pointer;
+}
+
  #commande
  {
-   position: absolute;
-   top: 2%;
    left: 95%;
-   cursor: pointer;
  }
 
- #music
+ #musicButton
  {
-   position: absolute;
-   left: 90%;
-   top: 2%;
+   left: 91%;
  }

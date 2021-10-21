@@ -1,12 +1,16 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext('2d');
-const CANVAS_WIDTH = canvas.width = window.innerWidth;
-const CANVAS_HEIGHT = canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let CANVAS_WIDTH = canvas.width;
+let CANVAS_HEIGHT = canvas.height;
 
 document.addEventListener('resize', () =>
 {
-  CANVAS_WIDTH = canvas.width = window.innerWidth;
-  CANVAS_HEIGHT = canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  CANVAS_WIDTH = window.innerWidth;
+  CANVAS_HEIGHT = window.innerHeight;
 })
 
 let runSpriteIndex = 0;
@@ -68,7 +72,7 @@ let gameLoop = () =>
     fireSpells[i].shoot();
   }
 
-  monsters.forEach((monster, i) => {
+  monsters.forEach((monster) => {
     monster.draw();
     monster.x -= monster.speed;
   });
@@ -80,8 +84,9 @@ let gameLoop = () =>
 
 
 /*ATTAQUE*/
-window.addEventListener('click',(e) =>
+canvas.addEventListener('click',(e) =>
 {
+  playMusic();
   mouse.x = e.clientX;
   mouse.y = e.clientY;
   character.attack();
@@ -118,7 +123,6 @@ window.addEventListener('keydown',(e) =>
 function playGame()
 {
   let breakScreen = document.querySelector('#breakScreen');
-  playMusic();
   if (GAME_STATUT == "play")
   {
     breakScreen.style.display = "none";
