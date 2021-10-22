@@ -26,6 +26,7 @@ class Character
     this.shape = 2; // basic, feu et glace
     this.movementType = "3_RUN";
     this.spriteIndex = 0;
+    this.speed = 75;
     this.attackStatut = false;
     this.movementIndex = 0;
     this.jump = false;
@@ -66,19 +67,19 @@ class Character
       case 0:
       spell = new MagicSpell(this.shape);
       this.movementType = "5_ATTACK";
-      magicSpells.push(spell);
+      spells.push(spell);
       break;
 
       case 1:
       spell = new FireSpell(this.shape);
       this.movementType = "5_ATTACK";
-      fireSpells.push(spell);
+      spells.push(spell);
       break;
 
       case 2:
       spell = new IceSpell(this.shape, mouse.x, mouse.y);
       this.movementType = "5_ATTACK";
-      iceSpells.push(spell);
+      spells.push(spell);
       break;
     }
   }
@@ -111,4 +112,26 @@ class Character
       }
     },10)
   }
+
+  moveLeft()
+  {
+    if (this.x < 0) {
+      return
+    }
+    else {
+      this.x -= this.speed;
+    }
+  }
+
+  moveRight()
+  {
+    if (this.x > CANVAS_WIDTH-character.width) {
+      return
+    }
+    else {
+      this.x += this.speed;
+    }
+
+  }
+
 }

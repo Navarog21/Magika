@@ -5,6 +5,7 @@ class Controls
 
 
 let second,time;
+
 canvas.addEventListener('mousedown',(e) =>
 {
   time = Date.now();

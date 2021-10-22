@@ -1,6 +1,4 @@
-let magicSpells = [];
-let fireSpells = [];
-let iceSpells = [];
+let spells = [];
 
 class Spell
 {

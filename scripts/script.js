@@ -19,7 +19,6 @@ const mouse = {
 
 window.addEventListener('load', () =>
 {
-
   playButton.addEventListener('click',() =>
   {
     WORLD = new World();
@@ -34,27 +33,10 @@ let gameLoop = () =>
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   character.draw();
 
-  for (let i = 0; i < magicSpells.length; i++)
-  {
-    magicSpells[i].draw();
-    magicSpells[i].shoot();
-  }
+  spells.forEach((spell) => {
+    spell.draw();
+    spell.shoot();
+  });
 
-  for (let i = 0; i < fireSpells.length; i++)
-  {
-    if (second > 1) {
-      fireSpells[i].bigShoot();
-    }
-    else {
-      fireSpells[i].shoot();
-    }
-    fireSpells[i].draw();
-  }
-
-  for (let i = 0; i < iceSpells.length; i++)
-  {
-    iceSpells[i].draw();
-    iceSpells[i].shoot();
-  }
   WORLD.play();
 }
