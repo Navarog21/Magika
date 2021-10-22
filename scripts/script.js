@@ -11,6 +11,13 @@ let BACKGROUND;
 let character;
 let characterImage;
 let monsters = [];
+const projectiles = [];
+
+for (let i = 0; i < 75; i++)
+{
+  projectiles.push(new Projectile());
+}
+
 
 const mouse = {
   x: 0,
@@ -32,6 +39,12 @@ let gameLoop = () =>
 {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
   character.draw();
+
+  projectiles.forEach((projectile) =>
+  {
+    projectile.draw();
+    projectile.fall();
+  });
 
   spells.forEach((spell) => {
     spell.draw();

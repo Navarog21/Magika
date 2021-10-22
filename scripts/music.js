@@ -10,7 +10,7 @@ musicButton.addEventListener('click', () =>
 
 document.addEventListener('click', () =>
 {
-  interfaceMusic.play();
+
 })
 
 function playMusic()

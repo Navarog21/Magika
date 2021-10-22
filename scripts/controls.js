@@ -15,7 +15,6 @@ canvas.addEventListener('mouseup',(e) =>
 {
   let time2 = Date.now();
   second = (time2 - time)/1000
-  console.log(second)
 })
 
 canvas.addEventListener('click',(e) =>
