@@ -36,14 +36,22 @@ window.addEventListener('keydown',(e) =>
     else character.shape++;
   }
 
+
   if (e.keyCode == 32)
   {
     character.toJump();
   }
 
-  if (e.keyCode == 18)
+  // Flèche de gauche
+  if (event.keyCode == 37)
   {
+    character.moveLeft();
+  }
 
+  // Flèche de droite
+  if (event.keyCode == 39)
+  {
+    character.moveRight();
   }
 
   if (e.key == "Escape")

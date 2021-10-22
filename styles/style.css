@@ -4,7 +4,7 @@ html, body
   height: 100%;
   margin: 0;
   padding: 0;
-  /*background: center / cover url('images/background.png');*/
+  background: center / cover no-repeat url('../images/backgrounds/background3.png');
 }
 
 canvas

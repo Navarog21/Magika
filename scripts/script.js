@@ -23,8 +23,6 @@ window.addEventListener('load', () =>
   playButton.addEventListener('click',() =>
   {
     WORLD = new World();
-    let image = WORLD.createBackground();
-    BACKGROUND = new Background(image)
     character = new Character();
     characterImage = new Image();
     WORLD.play();
@@ -34,7 +32,6 @@ window.addEventListener('load', () =>
 let gameLoop = () =>
 {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  BACKGROUND.moveBackground();
   character.draw();
 
   for (let i = 0; i < magicSpells.length; i++)
