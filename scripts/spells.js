@@ -1,3 +1,7 @@
+let magicSpells = [];
+let fireSpells = [];
+let iceSpells = [];
+
 class Spell
 {
   constructor(shape)
@@ -26,7 +30,7 @@ class MagicSpell extends Spell
 
   shoot()
   {
-    this.x -= gameSpeed;
+    this.x -= WORLD.gameSpeed;
     this.y += this.speed;
   }
 }

@@ -1,5 +1,3 @@
-let spellSound = ['sounds/normalAttack', "sounds/fireImpact", "sounds/iceAttack"]
-
 
 class Object
 {
@@ -22,7 +20,7 @@ class Character
   constructor()
   {
     this.x = 200;
-    this.y = ground;
+    this.y = WORLD.ground;
     this.width = 200;
     this.height = 200;
     this.shape = 2; // basic, feu et glace
@@ -38,9 +36,9 @@ class Character
 
   draw()
   {
-    if (gameFrame == 5){
+    if (WORLD.gameFrame == 5){
       this.spriteIndex++;
-      gameFrame = 0;
+      WORLD.gameFrame = 0;
     }
     if (this.spriteIndex > 4) this.spriteIndex = 0;
     characterImage.src = "images/sprites/" + this.shape + "/" + this.movementType + "_00" + this.spriteIndex + ".png";
@@ -59,8 +57,7 @@ class Character
 
   attack()
   {
-    let audio = new Audio(spellSound[this.shape]);
-    audio.play();
+    new SoundEffect().soundAttack(this.shape)
     this.attackStatut = true;
     this.spriteIndex = 0;
     let spell;

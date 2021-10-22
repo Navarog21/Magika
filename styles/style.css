@@ -12,14 +12,10 @@ canvas
   display: block;
 }
 
-.interface
-{
-  position: absolute;
-}
-
 #breakScreen
 {
   display: none;
+  position: absolute;
   --width: 650px;
   --height: 400px;
   top: calc(50% - var(--height)/2);
@@ -35,11 +31,6 @@ canvas
 }
 
 
-
-
-
-
-
 #title
  {
    font-size: 6rem;
@@ -51,7 +42,6 @@ canvas
   top: 2%;
   cursor: pointer;
 }
-
 
  #musicButton
  {

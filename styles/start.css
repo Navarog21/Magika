@@ -1,5 +1,6 @@
 #startScreen
 {
+  position: absolute;
   display: flex;
   --width: 650px;
   --height: 400px;
@@ -15,9 +16,15 @@
   background-color: rgba(0,0,255,0.8);
 }
 
-#playGame
+button
 {
   outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+#playGame
+{
   border: 1px solid white;
   font-size: 5rem;
   color: white;
@@ -25,7 +32,6 @@
   border-radius: 15px;
   padding: 10px;
   cursor: pointer;
-  background-color: transparent;
 }
 
 #playGame:hover

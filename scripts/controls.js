@@ -19,7 +19,6 @@ canvas.addEventListener('mouseup',(e) =>
 
 canvas.addEventListener('click',(e) =>
 {
-  playMusic();
   mouse.x = e.clientX;
   mouse.y = e.clientY;
   character.attack();
@@ -51,7 +50,7 @@ window.addEventListener('keydown',(e) =>
   {
     if (GAME_STATUT == "paused") {
       GAME_STATUT = "play";
-      playGame();
+      WORLD.play();
     }
     else {
       GAME_STATUT = "paused";
