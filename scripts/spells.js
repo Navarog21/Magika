@@ -5,6 +5,16 @@ class Spell
   constructor(shape)
   {
     this.shape = shape;
+    this.spriteIndex = 0;
+  }
+
+  draw()
+  {
+    if (this.spriteIndex > this.spriteNumber) this.spriteIndex = 0;
+    let image = new Image();
+    image.src = this.imageLink + this.spriteIndex + ".png";
+    ctx.drawImage(image, this.x, this.y, this.width, this.height)
+    this.spriteIndex++;
   }
 }
 
@@ -15,15 +25,11 @@ class MagicSpell extends Spell
     super()
     this.x = mouse.x;
     this.y = mouse.y;
-    this.width = 50;
-    this.height = 50;
+    this.imageLink = "images/spells/normal/1_";
+    this.spriteNumber = 59;
+    this.width = 150;
+    this.height = 150;
     this.speed = 8;
-  }
-
-  draw()
-  {
-    ctx.fillStyle = "purple";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
   shoot()
@@ -40,18 +46,13 @@ class FireSpell extends Spell
     super()
     this.x = character.x + character.width/2;
     this.y = character.y + character.height/2;
+    this.imageLink = "images/spells/fire/1_";
+    this.spriteNumber = 59;
+    this.width = 150;
+    this.height = 150;
     this.mouseX = mouse.x;
     this.mouseY = mouse.y;
-    this.radius = 7;
     this.speed = 10;
-  }
-
-  draw()
-  {
-    ctx.beginPath();
-    ctx.fillStyle = "red";
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-    ctx.fill();
   }
 
   shoot()
@@ -75,19 +76,14 @@ class IceSpell extends Spell
   {
     super()
     this.x = character.x + character.width/2;
-    this.y = character.y + character.height/2;
+    this.y = character.y;
     this.mouseX = mouse.x;
     this.mouseY = mouse.y;
-    this.width = 70;
-    this.height = 10;
-    this.speed = 15;
-  }
-
-  draw()
-  {
-    ctx.beginPath();
-    ctx.fillStyle = "cyan";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.spriteNumber = 59;
+    this.width = 150;
+    this.height = 150;
+    this.speed = 10;
+    this.imageLink = "images/spells/ice/1_";
   }
 
   shoot()
@@ -95,12 +91,13 @@ class IceSpell extends Spell
     if (monsters.length != 0) {
       let first = getFirstMonster();
       if (this.x > first) {
-
       }
     }
     this.x += this.speed;
   }
 }
+
+
 
 function getFirstMonster()
 {

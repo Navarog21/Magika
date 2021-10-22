@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8"/>
-  <title>Test</title>
+  <title>Santa quests</title>
   <link type="text/css" rel="stylesheet" href="styles/style.css"/>
   <link type="text/css" rel="stylesheet" href="styles/start.css"/>
 </head>
@@ -10,43 +10,65 @@
 <body>
   <img class="icon" id="musicButton" src="images/icones/musique.png" width="50" height="50"/>
   <div id="breakScreen">
-    <span class="interface" id="title">Jeu en pause</span>
-    <button id="restartButton">Recommencer</button>
-    <button id="leaveButton">Quitter</button>
+    <span class="interface" id="paused">Jeu en pause</span>
+    <button class="pauseButton" id="continueButton">Continuer</button>
+    <button class="pauseButton" id="restartButton">Recommencer</button>
+    <button class="pauseButton" id="leaveButton">Accueil</button>
     <div id="audio"></div>
     <div id="restart"></div>
   </div>
 
   <div class="interface" id="startScreen">
-    <span>Santa</span>
-    <img class="icon" id="commande"src="images/icones/clavier.png" width="50" height="50"/>
-    <button id="playGame">Jouer</button>
+    <span class="title">Santa Quests</span>
+    <img class="icon" id="creditsButton" src="images/icones/credit.png"/>
+    <div id="levels">
+      <button class="level" id="level1">Niveau 1</button>
+      <button class="level" id="level2">Niveau 2</button>
+      <button class="level" id="level3">Niveau 3</button>
+      <button class="level" id="level4">Niveau 4</button>
+    </div>
+
+    <div id="creditsContainer">
+      <div>Créer par Navarog</div>
+      <div id="music">Music :</div>
+      <div id="SoundEffect">Effets sonores : </div>
+      <div id="backgroundImages">Images de fond :</div>
+    </div>
+
+    <div id="controls">
+      <span class="title">Contrôles</span>
+      <div class="controlContainer">
+        <label for="moveForward">Avancer</label>
+        <input type="text" maxlength="1" placeholder="Z" class="control" id="moveForward"/>
+      </div>
+      <div class="controlContainer">
+        <label for="moveBackward">Reculer</label>
+        <input type="text" maxlength="1" placeholder="S" class="control" id="moveBackward"/>
+      </div>
+      <div class="controlContainer">
+        <label for="moveRight">Droite</label>
+        <input type="text" maxlength="1" placeholder="D" class="control" id="moveRight"/>
+      </div>
+      <div class="controlContainer">
+        <label for="moveLeft">Gauche</label>
+        <input type="text" maxlength="1" placeholder="Q" class="control" id="moveLeft"/>
+      </div>
+      <div class="controlContainer">
+        <label for="jump">Sauter</label>
+        <input type="text" maxlength="1" placeholder="Espace" class="control" id="jump"/>
+      </div>
+      <div class="controlContainer">
+        <label for="attack">Attaquer</label>
+        <input type="text" maxlength="1" placeholder="Clic gauche" class="control" id="attack"/>
+      </div>
+      <div class="controlContainer">
+        <label for="swap">Swap</label>
+        <input type="text" maxlength="1" placeholder="Tab" class="control" id="swap"/>
+      </div>
+    </div>
+
   </div>
 
-  <div id="controls">
-    <div class="controlContainer">
-      <label for="moveForward">Avancer</label>
-      <input type="text" class="control" id="moveForward"></span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="moveBackWard">Reculer</span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="moveRight">Droite</span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="moveLeft">Gauche</span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="Sauter">Sauter</span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="Attaquer">Attaquer</span>
-    </div>
-    <div class="controlContainer">
-      <input type="text" class="control" id="swap">Swap</span>
-    </div>
-  </div>
 
   <canvas id="canvas"></canvas>
 </body>
@@ -55,6 +77,7 @@
 
 <script src="scripts/autre.js"></script>
 <script src="scripts/projectile.js"></script>
+<script src="scripts/platform.js"></script>
 <script src="scripts/interface.js"></script>
 <script src="scripts/background.js"></script>
 <script src="scripts/controls.js"></script>

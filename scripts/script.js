@@ -7,37 +7,22 @@ let CANVAS_HEIGHT = canvas.height;
 
 let WORLD;
 let GAME_STATUT = "play";
-let BACKGROUND;
+let BACKGROUND = new Background()
 let character;
 let characterImage;
 let monsters = [];
 const projectiles = [];
-
-for (let i = 0; i < 75; i++)
-{
-  projectiles.push(new Projectile());
-}
-
+const platforms = [];
 
 const mouse = {
   x: 0,
   y: 0
 }
 
-window.addEventListener('load', () =>
-{
-  playButton.addEventListener('click',() =>
-  {
-    WORLD = new World();
-    character = new Character();
-    characterImage = new Image();
-    WORLD.play();
-  })
-})
-
 let gameLoop = () =>
 {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  BACKGROUND.snow();
   character.draw();
 
   projectiles.forEach((projectile) =>
@@ -46,10 +31,17 @@ let gameLoop = () =>
     projectile.fall();
   });
 
-  spells.forEach((spell) => {
-    spell.draw();
-    spell.shoot();
+  platforms.forEach((platform) =>
+  {
+    platform.draw();
+    platform.getCollision();
   });
 
-  WORLD.play();
+  spells.forEach((spell) => {
+    spell.shoot();
+    spell.draw();
+  });
+  WORLD.gameFrame++;
+  requestAnimationFrame(gameLoop);
+
 }

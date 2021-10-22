@@ -1,35 +1,31 @@
+
 class Controls
 {
-
+  constructor()
+  {
+    this.forward = document.querySelector('#moveForward').value;
+    this.backward = document.querySelector('#moveBackward').value;
+    this.right = document.querySelector('#moveRight').value;
+    this.left = document.querySelector('#moveLeft').value;
+    this.jump = document.querySelector('#jump').value;
+    this.attack = document.querySelector('#attack').value;
+    this.swap = document.querySelector('#swap').value;
+  }
 }
 
-
-let second,time;
-
-canvas.addEventListener('mousedown',(e) =>
-{
-  time = Date.now();
-})
-
-canvas.addEventListener('mouseup',(e) =>
-{
-  let time2 = Date.now();
-  second = (time2 - time)/1000
-})
 
 canvas.addEventListener('click',(e) =>
 {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
   character.attack();
-
 })
 
 window.addEventListener('keydown',(e) =>
 {
-  e.preventDefault();
   if (e.key == "Tab")
   {
+    e.preventDefault();
     let audio = new Audio("sounds/swap.wav")
     audio.play();
     if (character.shape == 2) character.shape = 0;
@@ -43,25 +39,19 @@ window.addEventListener('keydown',(e) =>
   }
 
   // Flèche de gauche
-  if (event.keyCode == 37)
+  if (event.key == "q" || event.key == "Q")
   {
     character.moveLeft();
   }
 
   // Flèche de droite
-  if (event.keyCode == 39)
+  if (event.key == "d" || event.key == "D")
   {
     character.moveRight();
   }
 
   if (e.key == "Escape")
   {
-    if (GAME_STATUT == "paused") {
-      GAME_STATUT = "play";
-      WORLD.play();
-    }
-    else {
-      GAME_STATUT = "paused";
-    }
+    WORLD.break();
   }
 })

@@ -21,10 +21,10 @@ class Character
   {
     this.x = 200;
     this.y = WORLD.ground;
-    this.width = 200;
-    this.height = 200;
+    this.width = CANVAS_WIDTH/11;
+    this.height = CANVAS_HEIGHT/6;
     this.shape = 2; // basic, feu et glace
-    this.movementType = "3_RUN";
+    this.movementType = "1_IDLE";
     this.spriteIndex = 0;
     this.speed = 75;
     this.attackStatut = false;
@@ -49,7 +49,7 @@ class Character
     {
       this.movementIndex++
       if (this.movementIndex > 40 ) {
-        this.movementType = "3_RUN";
+        this.movementType = "1_IDLE";
         this.movementIndex = 0;
         this.attackStatut = false;
       }
@@ -98,7 +98,6 @@ class Character
           this.fall = true;
         }
       }
-
       if (this.fall == true)
       {
         if (this.y > WORLD.ground) {

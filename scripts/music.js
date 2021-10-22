@@ -18,7 +18,7 @@ function playMusic()
   backgroundMusic.play();
 }
 
-function pauseMusic()
+function stopMusic()
 {
   if (backgroundMusic.muted == true) {
     backgroundMusic.muted = false;
