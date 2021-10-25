@@ -8,6 +8,12 @@ const breakScreen = document.querySelector('#breakScreen');
 const controls = document.querySelector('#controls');
 
 
+let character;
+let characterImage;
+let monsters = [];
+const projectiles = [];
+const platforms = [];
+
 window.addEventListener('load', () =>
 {
   levelButtons.forEach((button, i) =>
@@ -21,15 +27,14 @@ window.addEventListener('load', () =>
       characterImage = new Image();
       WORLD.play();
 
-      for (let i = 0; i < 75; i++)
+      setInterval(function()
       {
-        projectiles.push(new Projectile());
-      }
-
-      for (let i = 0; i < 4; i++)
-      {
-        platforms.push(new Platform());
-      }
+        for (let i = 0; i < 10; i++)
+        {
+          projectiles.push(new Projectile());
+        }
+      },4000)
+      
     })
   });
 })

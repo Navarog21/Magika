@@ -6,7 +6,7 @@ class World
     this.gravity = 3;
     this.gameSpeed = 8;
     this.gameFrame = 0;
-    this.ground = CANVAS_HEIGHT-250;
+    this.ground = CANVAS_HEIGHT-125;
     this.level = level;
     this.gameFrame = 0;
   }

@@ -19,10 +19,10 @@ class Character
 {
   constructor()
   {
-    this.x = 200;
-    this.y = WORLD.ground;
     this.width = CANVAS_WIDTH/11;
     this.height = CANVAS_HEIGHT/6;
+    this.x = 200;
+    this.y = WORLD.ground - this.height;
     this.shape = 2; // basic, feu et glace
     this.movementType = "1_IDLE";
     this.spriteIndex = 0;

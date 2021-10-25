@@ -60,4 +60,10 @@ class SoundEffect extends Sounds
     let audio = new Audio(spellSound[shape]);
     audio.play();
   }
+
+  getObject()
+  {
+    let audio = new Audio("sounds/achievement.wav");
+    audio.play();
+  }
 }

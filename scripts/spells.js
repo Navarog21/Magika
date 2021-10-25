@@ -33,7 +33,7 @@ class MagicSpell extends Spell
   }
 
   shoot()
-  {
+  { 
     this.x -= WORLD.gameSpeed;
     this.y += this.speed;
   }
@@ -45,7 +45,7 @@ class FireSpell extends Spell
   {
     super()
     this.x = character.x + character.width/2;
-    this.y = character.y + character.height/2;
+    this.y = character.y;
     this.imageLink = "images/spells/fire/1_";
     this.spriteNumber = 59;
     this.width = 150;

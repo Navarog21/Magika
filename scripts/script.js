@@ -8,11 +8,6 @@ let CANVAS_HEIGHT = canvas.height;
 let WORLD;
 let GAME_STATUT = "play";
 let BACKGROUND = new Background()
-let character;
-let characterImage;
-let monsters = [];
-const projectiles = [];
-const platforms = [];
 
 const mouse = {
   x: 0,
@@ -25,10 +20,10 @@ let gameLoop = () =>
   BACKGROUND.snow();
   character.draw();
 
-  projectiles.forEach((projectile) =>
+  projectiles.forEach((projectile, i) =>
   {
+    projectile.getCollision(i);
     projectile.draw();
-    projectile.fall();
   });
 
   platforms.forEach((platform) =>

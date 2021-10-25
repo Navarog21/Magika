@@ -8,6 +8,6 @@ document.addEventListener('resize', () =>
 
 function getRandomNumber(min, max)
 {
-  const number = Math.floor(Math.random() * (max - min) + min);
+  const number = Math.round(Math.random() * (max - min) + min);
   return number;
 }
